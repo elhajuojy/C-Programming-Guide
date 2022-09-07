@@ -1,1 +1,3 @@
-/public/static/**/*.exe
+
+# gitignore the complited version 
+/*.exe

@@ -17,9 +17,6 @@ int main(){
 
     //calcaulter
 
-    
-
-
     return 0;
 
 
