@@ -1,3 +1,5 @@
 
 # gitignore the complited version 
 /*.exe
+../*.exe
+../../*.exe
