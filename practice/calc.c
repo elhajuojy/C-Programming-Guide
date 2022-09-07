@@ -18,7 +18,6 @@ int main(void){
     }
     else if(strcmp(op, "-") == 0){
         printf("%d",a-b);
-
     }
     else if(strcmp(op, "*") == 0){
         printf("%d",a*b);

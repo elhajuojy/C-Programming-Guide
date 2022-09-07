@@ -1,5 +1,7 @@
 #include <stdio.h>
 //print start with pattern 
+
+double pi=3.14;
 void printname(){
     for (int i = 0; i < 10; i++)
     {
@@ -48,6 +50,7 @@ void PrintNameWithShapeInTheConsole(char name[]){
         }
         
             printf("\n");
+            
     }
     
 }
