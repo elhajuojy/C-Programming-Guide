@@ -1,6 +1,6 @@
 # basic of c lanaguge 
 
-**in this repo you will find so many topic and practice file that can achive your way of learning c lanaguge**
+**in this repo you will find so many topic and practice file that can achieve your way of learning c language💕 image.png**
 
 ## topics!
 
