@@ -52,6 +52,12 @@ void PrintNameWithShapeInTheConsole(char name[]){
     
 }
 
+//todo :BUILD TRIANGLE IN C NEED TO FIND ABOUT PATTERN IN  SHAPES
+int printTriangle(){
+    
+}
+
+
 int main(void){
     // printname();
     // char name[20]
