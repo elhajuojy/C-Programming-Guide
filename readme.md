@@ -12,36 +12,36 @@
     - C input/Output
     - C Operators
 2. C Flow Control
-   1. if.. else
-   2. for loop
-   3. while loop
-   4. c break and continue
-   5. switch ..case
+    - if.. else
+    - for loop
+    - while loop
+    - c break and continue
+    - switch ..case
 3. C Functions
-   1. Functions
-   2. Function Type
-   3. Rescursion
-   4. Storage
+    - Functions
+    - Function Type
+    - Rescursion
+    - Storage
 4. C Arrays
-   1. Arrays and Multi-dimensional arrays
-   2. Arrays & Function
+   - Arrays and Multi-dimensional arrays
+   - Arrays & Function
 5. C Pointers
-   1. Pointers
-   2. Poitner & Function
-   3. Memory Allocation
+    - Pointers
+    - Poitner & Function
+    - Memory Allocation
 6. C String
-   1. String Function
+   - String Function
 7. Structure And Union
-   1. Structure
-   2. Struct  & Poitners
-   3. Struct  & Function
-   4. Unions
+   - Structure
+   - Struct  & Poitners
+   - Struct  & Function
+   - Unions
 8. C Files
-   1. input/Output
+   - input/Output
 9. Additional Topics
-   1. Enumeration
-   2. Preprocessors
-   3. Standard Libaray
+   - Enumeration
+   - Preprocessors
+   - Standard Libaray
 
 ## Links
 
