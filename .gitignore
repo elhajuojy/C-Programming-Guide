@@ -1,5 +1,5 @@
-
 # gitignore the complited version 
-/*.exe
-../*.exe
-../../*.exe
+*.exe
+/public/static/**/*.exe
+/pointers/*.exe
+/.vscode
