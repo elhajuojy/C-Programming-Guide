@@ -3,3 +3,5 @@
 /public/static/**/*.exe
 /pointers/*.exe
 /.vscode
+../*.exe
+/*.exe
