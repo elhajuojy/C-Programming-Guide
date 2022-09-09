@@ -1,5 +1,5 @@
 #include<stdio.h>
- 
+
 int main() {
     int i, j, numberOfRows, star ;
     printf("Please entre the number :");
@@ -21,7 +21,5 @@ int main() {
         star = 0;
         printf("\n");
     }
-   
-   
     return 0;
 }
