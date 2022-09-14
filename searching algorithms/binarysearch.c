@@ -4,6 +4,7 @@ int table[] = {3,5,8,7,99,6,12,20,1};
 int size = sizeof table / sizeof table[0];
 
 void sort();
+void binarySearch(int arry[],int low,int heghit,int key);
 
 int main(){
     sort();
@@ -18,30 +19,30 @@ int main(){
     int end = size;
     printf("please entre one number :");
     scanf("%d",&n);
-    int CenterOfTheTable = 0 ;
-    while (table[CenterOfTheTable] != n)
-    {
-        CenterOfTheTable  = end/2 ;
-        if (n ==table[CenterOfTheTable])
-        {   
-            printf("success find the number %d ",table[CenterOfTheTable]);
-
-        }
-        else if (table[CenterOfTheTable]>n)
-        {
-            end = CenterOfTheTable;
-
-        }
-        else
-        {
-            start = end;
-            end = CenterOfTheTable;
-        }
-    }
-    
+    binarySearch(table,start,end,n);
     return 0;
 }
 
+void binarySearch(int arry[],int low,int heghit,int key){
+
+    int m = (low+heghit)/2;
+    if (low>heghit)
+    {
+        printf("not found ");
+    }
+    else if(arry[m]==key)
+    {
+        printf("found ");
+    }else if (arry[m]>key)
+    {
+        binarySearch(arry , low,m-1,key);
+    }
+    else if (arry[m]<key)
+    {
+        binarySearch(arry , m+1,heghit,key);
+    }
+
+}
 //bubble sort 
 void sort(){
     int temp ;
