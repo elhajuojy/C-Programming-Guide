@@ -228,6 +228,7 @@ int main(void){
             break;
         case 2:
             printf("2\n");
+            triAccount(descending);
             break;
         case 3:
             printf("3\n");
@@ -270,15 +271,15 @@ int main(void){
     return 0;
 }
 
-
+//account sort 
 void triAccount(enum sort sortwith){
     sortwith==0?printf("asending \n"):printf("desnding \n");
+        int posmin = 0;
+        struct Client temp ;
     if (sortwith == 0)
     {   
             
-            int posmin = 0;
-            struct Client temp ;
-                for (int j = 0; j < length; j++)
+            for (int j = 0; j < length; j++)
             {
                 for (int i = 1; i < length; i++)
                 {
@@ -290,26 +291,36 @@ void triAccount(enum sort sortwith){
                     }
                 }
             }
-            //         for (int i = 0; i < length; i++)
-            //         {
-            //             for (int j = i+1; j < length; j++)
-            //             {
-            //                 if (ClientList[j].Montant<ClientList[posmin].Montant)
-            //                 {
-            //                     printf("%lf < %lf ",ClientList[j].Montant,ClientList[posmin].Montant);
-            //                     posmin= j;
-            //                 }
-            //             }
-            //             valueofIndex = ClientList[i];
-            //             ClientList[i] = ClientList[posmin];
-            //             ClientList[posmin] = valueofIndex;
-            //         }
+            printf("============================================");
             for (int i = 0; i < length; i++)
             {
+
                 printf(" %s => |%s| => 💴💴%lf \n",ClientList[i].Nom, ClientList[i].CIN,ClientList[i].Montant);
             }
+            printf("============================================");
     }
-    
+    else{
+        for (int j = 0; j < length; j++)
+            {
+                for (int i = 1; i < length; i++)
+                {
+                    if (ClientList[i].Montant>ClientList[i-1].Montant)
+                    {
+                        temp = ClientList[i];
+                        ClientList[i] = ClientList[i-1];
+                        ClientList[i-1] = temp;
+                    }
+                }
+            }
+            printf("============================================");
+            for (int i = 0; i < length; i++)
+            {
+
+                printf(" %s => |%s| => 💴💴%lf \n",ClientList[i].Nom, ClientList[i].CIN,ClientList[i].Montant);
+            }
+            printf("============================================");
+
+    }
     
     
 }
