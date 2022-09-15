@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <math.h>
 #include <string.h>
+#include <string.h>
 #include <time.h>
 #include <stdlib.h>
 #include<windows.h>
@@ -13,15 +14,40 @@ struct Client {
   double Montant;
 }ClientList[1000];
 
+int length = 0; 
+
+void rechercheparCIN(char cinClient[]){
+    int found = 0;
+    for (int i = 0; i < length; i++)
+    {
+        printf("i value is =>%d ----> %s=%s \n",i,ClientList[i].CIN,cinClient);
+        if (strcmp(ClientList[i].CIN,cinClient)==0)
+        {
+            
+            printf("🧑‍💻🧑‍💻 user information : by CIN =>%s 🤖🤖 \n",cinClient);
+            printf(" %s =>%s => %s => %lf",ClientList[i].CIN,ClientList[i].Prenom,ClientList[i].Nom,ClientList[i].Montant);
+            printf("\n");
+            found = 1;
+            break;
+        }
+        
+    }
+   
+    if (found==0)
+    {
+        printf("the user does not exist");
+    }
+    
+    
+}
 
 enum sort {ascending , descending}; 
 
-int lastIndexOfList = 0; 
 void triAccount(enum sort sortwith);
+
 
 void createAccount(int accountNbr){
     accountNbr==0? accountNbr=0 : printf("🧑‍🦰 => create accont %d \n",accountNbr);
-
     char cin[10];
     char nom[20];
     char prenom[20];
@@ -47,18 +73,16 @@ void createAccount(int accountNbr){
         //====================== 
         printf(" 🎁🎁 your account  is successfully created \n");
         printf("🧑‍💻🧑‍💻 user information : 🤖🤖 \n");
-        ClientList[lastIndexOfList] =c1;
-        printf(" %s =>%s => %s => %lf",ClientList[lastIndexOfList].CIN,ClientList[lastIndexOfList].Prenom,ClientList[lastIndexOfList].Nom,ClientList[lastIndexOfList].Montant);
+        ClientList[length] =c1;
+        printf(" %s =>%s => %s => %lf",ClientList[length].CIN,ClientList[length].Prenom,ClientList[length].Nom,ClientList[length].Montant);
         printf("\n");
-        lastIndexOfList++;
-
-
+        length++;
 }
 
 int main(void){
     //menu principal
     int choice ;
-    
+
     printf("\n");
     printf("🏦🏦Console bank 🏦🏦 \n");
     printf("1-Introduire un compte bancaire \n");
@@ -70,7 +94,6 @@ int main(void){
     printf("entre votre choix :");
     scanf("%d",&choice);
     
-
     switch (choice)
     {
     case 1:
@@ -84,11 +107,12 @@ int main(void){
             c++;
             Sleep(1000);
         }
+
         printf("\n\n");
         main();
         break;
     case 2:
-        printf("your choice is =>2");
+        printf("your choice is =>2\n");
         int nbrAccount;
         printf("combien de compte vous voulez créer :");
         scanf("%d",&nbrAccount);
@@ -119,7 +143,7 @@ int main(void){
                 scanf("%s",&cin);
                 printf("s'il vous plait entrez votre montant : ");
                 scanf("%lf",&montantRetrait);
-                for (int j = 0; j < lastIndexOfList; j++)
+                for (int j = 0; j < length; j++)
                 {
                     if(strcmp(ClientList[j].CIN,cin)==0){
                         printf("the user is exsit in the database ");
@@ -150,7 +174,7 @@ int main(void){
                 printf("s'il vous plait entrez votre montant 'Depot': ");
                 scanf("%lf",&montantDepot);
                 //find the user which you want to add some money to his account 
-                for (int j = 0; j < lastIndexOfList; j++)
+                for (int j = 0; j < length; j++)
                 {
                     if(strcmp(ClientList[j].CIN,cin)==0){
                         printf("the user is exsit in the database ");
@@ -191,6 +215,7 @@ int main(void){
         printf("\t 6 - retourner");
         printf("\n");
         //* opp choice 
+        char cinUser[10];
         int oppp;
         printf("=>");
         scanf("%d",&oppp);
@@ -198,23 +223,28 @@ int main(void){
         {
         //
         case 1:
-            printf("1");
+            printf("1\n");
             triAccount(ascending);
             break;
         case 2:
-            printf("2");
+            printf("2\n");
             break;
         case 3:
-            printf("3");
+            printf("3\n");
             break;
         case 4:
-            printf("4");
+            printf("4\n");
             break;
         case 5:
-            printf("5");
+            //Recherche par CIN
+            printf("5\n");
+            printf("please entre your cin \n");
+            scanf("%s",cinUser);
+            rechercheparCIN(cinUser);
             break;
         case 6:
-            printf("6");
+            printf("6\n");
+            main();
             break;
         default:
             printf("Nothing else");
@@ -242,16 +272,19 @@ int main(void){
 
 
 void triAccount(enum sort sortwith){
-    if (sortwith == ascending)
-    {
+    sortwith==0?printf("asending \n"):printf("desnding \n");
+    if (sortwith == 0)
+    {   
+            
             int posmin = 0;
             struct Client valueofIndex ;
-            for (int i = 0; i < lastIndexOfList; i++)
+            for (int i = 0; i < length; i++)
             {
-                for (int j = i+1; j < lastIndexOfList; j++)
+                for (int j = i+1; j < length; j++)
                 {
                     if (ClientList[j].Montant<ClientList[posmin].Montant)
                     {
+                        printf("%lf < %lf ",ClientList[j].Montant,ClientList[posmin].Montant);
                         posmin= j;
                     }
                 }
@@ -259,7 +292,7 @@ void triAccount(enum sort sortwith){
                 ClientList[i] = ClientList[posmin];
                 ClientList[posmin] = valueofIndex;
             }
-            for (int i = 0; i < lastIndexOfList; i++)
+            for (int i = 0; i < length; i++)
             {
                 printf(" %s => |%s| => 💴💴%lf \n",ClientList[i].Nom, ClientList[i].CIN,ClientList[i].Montant);
             }
