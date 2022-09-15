@@ -277,21 +277,33 @@ void triAccount(enum sort sortwith){
     {   
             
             int posmin = 0;
-            struct Client valueofIndex ;
-            for (int i = 0; i < length; i++)
+            struct Client temp ;
+                for (int j = 0; j < length; j++)
             {
-                for (int j = i+1; j < length; j++)
+                for (int i = 1; i < length; i++)
                 {
-                    if (ClientList[j].Montant<ClientList[posmin].Montant)
+                    if (ClientList[i].Montant<ClientList[i-1].Montant)
                     {
-                        printf("%lf < %lf ",ClientList[j].Montant,ClientList[posmin].Montant);
-                        posmin= j;
+                        temp = ClientList[i];
+                        ClientList[i] = ClientList[i-1];
+                        ClientList[i-1] = temp;
                     }
                 }
-                valueofIndex = ClientList[i];
-                ClientList[i] = ClientList[posmin];
-                ClientList[posmin] = valueofIndex;
             }
+            //         for (int i = 0; i < length; i++)
+            //         {
+            //             for (int j = i+1; j < length; j++)
+            //             {
+            //                 if (ClientList[j].Montant<ClientList[posmin].Montant)
+            //                 {
+            //                     printf("%lf < %lf ",ClientList[j].Montant,ClientList[posmin].Montant);
+            //                     posmin= j;
+            //                 }
+            //             }
+            //             valueofIndex = ClientList[i];
+            //             ClientList[i] = ClientList[posmin];
+            //             ClientList[posmin] = valueofIndex;
+            //         }
             for (int i = 0; i < length; i++)
             {
                 printf(" %s => |%s| => 💴💴%lf \n",ClientList[i].Nom, ClientList[i].CIN,ClientList[i].Montant);
