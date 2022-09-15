@@ -16,6 +16,7 @@ struct Client {
 
 int length = 0; 
 
+void fidelisationFunc();
 void rechercheparCIN(char cinClient[]){
     int found = 0;
     for (int i = 0; i < length; i++)
@@ -65,8 +66,12 @@ void createAccount(int accountNbr){
         scanf("%s",&nom);
         strcpy(c1.Nom,nom);
         // printf("%s",c1.Prenom);
-        printf("veuillez entrer votre montant : ");
-        scanf("%lf",&montant);
+        do
+        {
+            printf("veuillez entrer votre montant : ");
+            scanf("%lf",&montant);
+            
+        } while (montant<0);
         printf("%lf",montant);
         c1.Montant=montant;
         printf("\n\n\n");
@@ -82,7 +87,6 @@ void createAccount(int accountNbr){
 int main(void){
     //menu principal
     int choice ;
-
     printf("\n");
     printf("🏦🏦Console bank 🏦🏦 \n");
     printf("1-Introduire un compte bancaire \n");
@@ -257,6 +261,8 @@ int main(void){
     //end of case 4 
     case 5:
         printf("your choice is =>5");
+        fidelisationFunc();
+
         break;
     case 6:
         printf("your choice is =>6");
@@ -271,7 +277,7 @@ int main(void){
     return 0;
 }
 
-//account sort 
+//account sort  function 
 void triAccount(enum sort sortwith){
     sortwith==0?printf("asending \n"):printf("desnding \n");
         int posmin = 0;
@@ -291,13 +297,13 @@ void triAccount(enum sort sortwith){
                     }
                 }
             }
-            printf("============================================");
+            printf("============================================\n");
             for (int i = 0; i < length; i++)
             {
 
                 printf(" %s => |%s| => 💴💴%lf \n",ClientList[i].Nom, ClientList[i].CIN,ClientList[i].Montant);
             }
-            printf("============================================");
+            printf("============================================\n");
     }
     else{
         for (int j = 0; j < length; j++)
@@ -322,5 +328,21 @@ void triAccount(enum sort sortwith){
 
     }
     
-    
+}
+
+///Fidélisation Ajouter 1.3% aux comptes ayant les 3 premiers montants supérieurs
+void fidelisationFunc(){
+     triAccount(descending);
+     printf("=========================");
+     for (int i = 0; i < 3; i++)
+     {
+        ClientList[i].Montant = ClientList[i].Montant+ (ClientList[i].Montant*1.3)/100; 
+     }
+     printf("=========================");
+     
+    for (int i = 0; i < length; i++)
+        {
+            printf(" %s => |%s| => 💴💴%lf \n",ClientList[i].Nom, ClientList[i].CIN,ClientList[i].Montant);
+        }
+    printf("============================================");
 }
