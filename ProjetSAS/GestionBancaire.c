@@ -333,16 +333,16 @@ void triAccount(enum sort sortwith){
 ///Fidélisation Ajouter 1.3% aux comptes ayant les 3 premiers montants supérieurs
 void fidelisationFunc(){
      triAccount(descending);
-     printf("=========================");
+     printf("=======================================\n");
      for (int i = 0; i < 3; i++)
      {
         ClientList[i].Montant = ClientList[i].Montant+ (ClientList[i].Montant*1.3)/100; 
      }
-     printf("=========================");
+     printf("========================================\n");
      
     for (int i = 0; i < length; i++)
         {
             printf(" %s => |%s| => 💴💴%lf \n",ClientList[i].Nom, ClientList[i].CIN,ClientList[i].Montant);
         }
-    printf("============================================");
+    printf("============================================\n");
 }
