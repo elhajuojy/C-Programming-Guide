@@ -20,9 +20,9 @@ int fabonaccci(int n )
 int main()
 {
 
-    int f ;
-  printf("suite de fibonacci choose un number :");
-  scanf("%d",&f);
+   int f ;
+   printf("suite de fibonacci choose un number :");
+   scanf("%d",&f);
 
   int res = fabonaccci(f);
 
